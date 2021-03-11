@@ -223,5 +223,5 @@ node_modules/
 
 .idea
 nodebb
-src/passport-fusionauth-oidc.js
-/src/passport-fusionauth-oidc.js.map
+src/passport-cognito-oidc.js
+/src/passport-cognito-oidc.js.map

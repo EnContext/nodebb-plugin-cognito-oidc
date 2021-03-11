@@ -1,7 +1,7 @@
 'use strict';
 
 /* globals $, app, socket, define, fetch */
-define('admin/plugins/fusionauth-oidc', ['settings'], function (settings) {
+define('admin/plugins/cognito-oidc', ['settings'], function (settings) {
 	const updateField = function (selector, value) {
 		if (!value) {
 			return;
@@ -15,15 +15,16 @@ define('admin/plugins/fusionauth-oidc', ['settings'], function (settings) {
 
 	return {
 		init: function () {
-			settings.load('fusionauth-oidc', $('#fusionauth-oidc-settings'));
+			settings.load('cognito-oidc', $('#cognito-oidc-settings'));
 
 			const save = function (form) {
-				settings.save('fusionauth-oidc', form, function () {
+				settings.save('cognito-oidc', form, function () {
 					app.alert({
 						type: 'success',
 						alert_id: 'sso-oidc-saved',
 						title: 'Settings Saved',
-						message: 'If you changed the email claim, you will need to restart before it will be applied.',
+						message:
+							'If you changed the email claim, you will need to restart before it will be applied.',
 						clickfn: function () {
 							socket.emit('admin.reload');
 						},
@@ -32,7 +33,7 @@ define('admin/plugins/fusionauth-oidc', ['settings'], function (settings) {
 			};
 
 			$('#save').on('click', function () {
-				const form = $('#fusionauth-oidc-settings');
+				const form = $('#cognito-oidc-settings');
 
 				// Trim the fields
 				form.find('input[data-trim="true"]').each(function () {
@@ -46,7 +47,8 @@ define('admin/plugins/fusionauth-oidc', ['settings'], function (settings) {
 							type: 'danger',
 							alert_id: 'sso-oidc-error',
 							title: 'An error occurred ',
-							message: 'An error has occurred while trying to discover the OIDC configuration. Make sure that this platform supports the well known configuration url and that you have the right url.',
+							message:
+								'An error has occurred while trying to discover the OIDC configuration. Make sure that this platform supports the well known configuration url and that you have the right url.',
 						});
 					};
 
@@ -56,10 +58,19 @@ define('admin/plugins/fusionauth-oidc', ['settings'], function (settings) {
 						.then((res) => res.json())
 						.then((json) => {
 							clearTimeout(timeout);
-							updateField('input[name="authorizationEndpoint"]', json.authorization_endpoint);
+							updateField(
+								'input[name="authorizationEndpoint"]',
+								json.authorization_endpoint
+							);
 							updateField('input[name="tokenEndpoint"]', json.token_endpoint);
-							updateField('input[name="userInfoEndpoint"]', json.userinfo_endpoint);
-							updateField('input[name="logoutEndpoint"]', json.end_session_endpoint);
+							updateField(
+								'input[name="userInfoEndpoint"]',
+								json.userinfo_endpoint
+							);
+							updateField(
+								'input[name="logoutEndpoint"]',
+								json.end_session_endpoint
+							);
 							save(form);
 						})
 						.catch((e) => {

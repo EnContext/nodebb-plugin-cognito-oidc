@@ -7,11 +7,11 @@
 			<div class="panel-body">
 				<div style="font-size: smaller;">Configure NodeBB to authenticate usign an OpenID Connect
 					identity provider. See the GitHub project <a
-							href="https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc">README</a> for additional information.
+							href="https://github.com/EnContext/nodebb-plugin-cognito-oidc">README</a> for additional information.
 					<a
-							href="https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc">https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc</a>
+							href="https://github.com/EnContext/nodebb-plugin-cognito-oidc">https://github.com/EnContext/nodebb-plugin-cognito-oidc</a>
 				</div>
-				<form class="mt-3" id="fusionauth-oidc-settings" role="form" style="margin-top: 15px;">
+				<form class="mt-3" id="cognito-oidc-settings" role="form" style="margin-top: 15px;">
 					<div class="form-group">
 						<label for="client_id">Client ID</label>
 						<input class="form-control" data-trim="true" id="client_id" name="clientId" type="text">
@@ -38,7 +38,7 @@
 						<input class="form-control" data-trim="true" id="user_info_endpoint" name="userInfoEndpoint" type="text">
 					</div>
 					<div class="form-group">
-						<label for="user_info_endpoint">Logout endpoint</label>
+						<label for="logout_endpoint">Logout endpoint</label>
 						<input class="form-control" data-trim="true" id="logout_endpoint" name="logoutEndpoint" type="text">
 					</div>
 					<div class="form-group">
@@ -46,7 +46,11 @@
 						<input class="form-control" data-trim="true" id="email_claim" name="emailClaim" type="text" value="email">
 					</div>
 					<div class="form-group">
-						<label for="email_claim">Roles claim</label>
+						<label for="username_claim">Username claim</label>
+						<input class="form-control" data-trim="true" id="username_claim" name="usernameClaim" type="text" value="preferred_username">
+					</div>
+					<div class="form-group">
+						<label for="roles_claim">Roles claim</label>
 						<input class="form-control" data-trim="true" id="roles_claim" name="rolesClaim" type="text">
 					</div>
 				</form>
@@ -55,7 +59,7 @@
 						<img src="https://fusionauth.io/assets/img/favicon-96x96.png" style="width: 100%;"></div>
 					<div>
 						Maintained by <a href="https://fusionauth.io">FusionAuth</a> <br> <a
-							href="https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc">https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc</a>
+							href="https://github.com/EnContext/nodebb-plugin-cognito-oidc">https://github.com/EnContext/nodebb-plugin-cognito-oidc</a>
 					</div>
 				</div>
 			</div>

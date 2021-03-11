@@ -1,11 +1,11 @@
 {
-  "name": "nodebb-plugin-fusionauth-oidc",
-  "version": "1.0.1",
+  "name": "nodebb-plugin-cognito-oidc",
+  "version": "1.1.0",
   "description": "Authenticate to FusionAuth or any OpenID Connect identity provider.",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc"
+    "url": "https://github.com/EnContext/nodebb-plugin-cognito-oidc"
   },
   "keywords": [
     "nodebb",
@@ -23,7 +23,7 @@
   },
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/FusionAuth/nodebb-plugin-fusionauth-oidc/issues"
+    "url": "https://github.com/EnContext/nodebb-plugin-cognito-oidc/issues"
   },
   "readmeFilename": "README.md",
   "dependencies": {
